@@ -1,36 +1,24 @@
 package com.expensetracker;
 
 import java.util.ArrayList;
-import java.util.List;
 
-public class ExpenseManager
-{
-    private List<Expense> expenses = new ArrayList<>();
+public class ExpenseManager {
+    private ArrayList<Expense> expenses = new ArrayList<>();
 
-    public void addExpense(Expense expense)
-    {
-        expenses.add(expense);
+    public void addExpense(Expense e) {
+        expenses.add(e);
     }
 
-    public void showAllExpenses()
-    {
-        if (expenses.isEmpty()) 
-        {
-            System.out.println("No expenses recorded yet!");
-            return;
-        }
-        for (Expense exp : expenses)
-        {
-            System.out.println(exp);
+    public void showAllExpenses() {
+        for (Expense e : expenses) {
+            System.out.println(e);
         }
     }
 
-    public double calculateTotal()
-    {
+    public double getTotalExpense() {
         double total = 0;
-        for (Expense exp : expenses)
-        {
-            total += exp.calculateExpense();
+        for (Expense e : expenses) {
+            total += e.calculateExpense();
         }
         return total;
     }

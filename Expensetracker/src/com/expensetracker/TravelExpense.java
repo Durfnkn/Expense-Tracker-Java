@@ -1,22 +1,22 @@
 package com.expensetracker;
 
 public class TravelExpense extends Expense {
-    private double distance;
+    private double distanceCost;
 
-    public TravelExpense(int expenseId, String title, double amount, double distance) {
+    public TravelExpense(int expenseId, String title, double amount, double distanceCost) {
         super(expenseId, title, amount);
-        if (distance < 0) throw new IllegalArgumentException("Distance cannot be negative!");
-        this.distance = distance;
+        if (distanceCost < 0) throw new IllegalArgumentException("Distance cost cannot be negative!");
+        this.distanceCost = distanceCost;
     }
 
     @Override
     public double calculateExpense() {
-        return amount + (distance * 2);
+        return amount + distanceCost;
     }
 
     @Override
     public String toString() {
-        return String.format("TravelExpense[id=%d, title=%s, base=%.2f, distance=%.2f, total=%.2f]",
-                expenseId, title, amount, distance, calculateExpense());
+        return String.format("TravelExpense[id=%d, title=%s, base=%.2f, distanceCost=%.2f, total=%.2f]",
+                expenseId, title, amount, distanceCost, calculateExpense());
     }
 }
